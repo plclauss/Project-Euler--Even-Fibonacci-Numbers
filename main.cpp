@@ -1,14 +1,5 @@
 #include <iostream>
 
-/* nextFibbNumber()'s only job is to be a recursive function that calls isEven() and that terminates once the next
- * number is above 4 million.
- * Additionally, if isEven() returns a true in some form, it will update (or append) an int* arr[] to include that
- * number.
- * Upon return (so, we're back in main), a simple for loop will iterate over the int* arr[], adding up all elements in
- * it. */
-
-/* isEven()'s only job is to figure out whether the next integer in the sequence is even. */
-
 int globalSum = 0;
 
 int isEven(int x) {
@@ -16,11 +7,14 @@ int isEven(int x) {
 }
 
 void nextFibbNumber(int* sum, int n, int r) {
+    //terminates if r ("result") is over the given limit
     if (r > 4000000)
         return;
 
+    //determine if the result is even, and add to the globalSum if it is
     (isEven(r) == 1) ? *sum+=r : *sum+=0;
 
+    //update terms n and r to find next Fibbonacci number
     int temp = r;
     r += n;
     n = temp;
