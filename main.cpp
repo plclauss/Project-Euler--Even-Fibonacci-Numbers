@@ -1,5 +1,6 @@
 #include <iostream>
 
+/*
 int globalSum = 0;
 
 int isEven(int x) {
@@ -27,5 +28,29 @@ int main() {
 
     std::cout << "Sum of even numbers from 1 to 4million in the Fibonacci sequence is: " << globalSum << "." << std::endl;
 
+    return 0;
+}
+*/
+
+
+int evenFibbNumber(int n) {
+    if (n == 0)
+        return 0;
+    if (n == 1)
+        return 2;
+    return 4*evenFibbNumber(n-1) + evenFibbNumber(n-2);
+}
+
+int main (void) {
+    int sum = 0, i = 1;
+
+
+    while (evenFibbNumber(i) < 4000000)
+    {
+        sum+= evenFibbNumber(i);
+        i++;
+    }
+
+    std::cout << sum << std::endl;
     return 0;
 }
